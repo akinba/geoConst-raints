@@ -158,7 +158,7 @@
     FOR r IN SELECT constraint_name
       FROM information_schema.constraint_column_usage WHERE table_name=quote_ident($1) and column_name='poly'
     LOOP
-      EXECUTE 'ALTER TABLE IF EXISTS '||$1||' DROP CONSTRAINT IF EXISTS '||r.constraint_name||';';
+      EXECUTE 'ALTER TABLE IF EXISTS '||$1||' DROP CONSTRAINT IF EXISTS "'||r.constraint_name||'" ;';
     END LOOP;
 
     --unique
