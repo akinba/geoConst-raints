@@ -2,4 +2,4 @@
 
 ##Usage
 
-    SELECT geoConstraits( 'tableName',srid,'{"POINT"}');
+    SELECT geoConstraits( 'tableName',srid,'{"geometryType"}');
