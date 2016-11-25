@@ -1,20 +1,20 @@
 --=========================================== v0.4
   
-  DROP  FUNCTION geosrid(text);
+  --DROP  FUNCTION geosrid(text);
 
-      CREATE OR REPLACE FUNCTION public.geosrid(text)
-      returns integer as 
-      $$
-      DECLARE a integer;
-      BEGIN
-      execute 'select distinct st_srid(poly)  from '||$1||' where poly is not null;' into a;
-      return a;
-      END
-      $$
-      LANGUAGE plpgsql;
+  CREATE OR REPLACE FUNCTION public.geosrid(text)
+  returns integer as 
+  $$
+  DECLARE a integer;
+  BEGIN
+  execute 'select distinct st_srid(poly)  from '||$1||' where poly is not null;' into a;
+  return a;
+  END
+  $$
+  LANGUAGE plpgsql;
 
 
-  DROP FUNCTION public.geoconstraits(TEXT,INTEGER,TEXT[] );
+  --DROP FUNCTION public.geoconstraits(TEXT,INTEGER,TEXT[] );
 
   CREATE OR REPLACE FUNCTION public.geoConstraits(text, integer, text[])
     RETURNS text AS
@@ -27,7 +27,7 @@
   WHEN $1 not  in (select tablename::text from pg_tables where schemaname=current_schema())
     then return 'Hata= Girdiginiz tablo ismi:'||$1||' veri tabanında yok!'; 
   WHEN 'poly' != (select column_name FROM information_schema.columns WHERE table_schema =  current_schema() AND table_name = 'ada' AND data_type = 'USER-DEFINED')
-    then return 'Hata= Girdiğiniz '||$1||' tablo su geometrik değil veya poly kolonu yok';
+    then return 'Hata= Girdiğiniz '||$1||' tablosu geometrik değil veya poly kolonu yok';
   WHEN $2 not in (select srid from spatial_ref_sys)
     then return 'Hata= Girdiginiz SRID:'||$2||' public.spatial_ref_sys tablosunda bulunmuyor!';
   WHEN $2 != (select geosrid($1))

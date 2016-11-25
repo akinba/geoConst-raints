@@ -9,4 +9,4 @@
     from parcel;
 
   SELECT geoConstraits( 'geopoi',32768,'{"POINT"}');
-  SELECT geoConstraits( 'parcel,32768,'{"POLYGON","MULTIPOLYGON"}');
+  SELECT geoConstraits( 'parcel',32768,'{"POLYGON","MULTIPOLYGON"}');
