@@ -1,7 +1,8 @@
 # geoConstraits
 version : 0.4
 ##Usage
-	CREATE FUNTION https://github.com/akinba/geoConstraits/blob/master/geoConstraits.sql
+	CREATE FUNTION [https://github.com/akinba/geoConstraits/blob/master/geoConstraits.sql!](https://github.com/akinba/geoConstraits/blob/master/geoConstraits.sql)
+	
     SELECT geoConstraits( 'tableName',srid, geometryTypeArray[]);
 
 ##Exemple
