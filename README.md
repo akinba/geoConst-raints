@@ -1,4 +1,4 @@
-# GeoConstraints
+# geoConst-raints
 version : 0.4
 ##Usage
 	CREATE FUNTION https://github.com/akinba/geoConstraits/blob/master/geoConst.sql
